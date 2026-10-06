@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard - Social Media Privacy Risk Assessment</title><link rel="stylesheet" href="/css/style.css"></head>
+<body><main>
+<h1>Cybersecurity Privacy Dashboard</h1>
+<p class="lead" id="source">Loading...</p>
+<p class="row"><a class="btn" href="/assessment.html">Start Privacy Assessment</a></p>
+<div class="grid g5" id="cards"></div>
+<div class="grid g2">
+<div class="card"><h3>1. Category risk scores (average)</h3><div class="chartbox"><canvas id="c1"></canvas></div></div>
+<div class="card"><h3>2. Privacy risk distribution</h3><div class="chartbox"><canvas id="c2"></canvas></div></div>
+<div class="card"><h3>3. Top privacy weaknesses (% of profiles)</h3><div class="chartbox"><canvas id="c3"></canvas></div></div>
+<div class="card"><h3>4. Account security controls (% enabled)</h3><div class="chartbox"><canvas id="c4"></canvas></div></div>
+<div class="card"><h3>5. Digital footprint risk (average)</h3><div class="chartbox"><canvas id="c5"></canvas></div></div>
+<div class="card"><h3>6. Privacy improvement comparison</h3><div class="chartbox"><canvas id="c6"></canvas></div></div>
+</div>
+<div class="notice" id="disc"></div>
+</main>
+<script src="/js/vendor/chart.umd.js"></script><script src="/js/common.js"></script><script src="/js/dashboard.js"></script>
+</body></html>

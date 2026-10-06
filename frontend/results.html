@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Results - Social Media Privacy Risk Assessment</title><link rel="stylesheet" href="/css/style.css"></head>
+<body><main>
+<div id="loading" class="lead">Loading your results...</div>
+<div id="content" hidden>
+<h1>Your privacy risk results</h1>
+<div class="grid g3">
+<div class="card"><h3>Overall privacy risk</h3><div class="big" id="score"></div></div>
+<div class="card"><h3>Risk level</h3><div id="level"></div><p class="lead" id="hrc"></p></div>
+<div class="card"><h3>Security controls enabled</h3><div class="big" id="controls"></div></div>
+</div>
+<div class="notice" id="disclaimer"></div>
+<div class="grid g2"><div class="card"><h3>Category risk (higher = more exposed)</h3><div class="chartbox"><canvas id="radar"></canvas></div></div>
+<div class="card"><h3>Category scores</h3><div id="bars"></div></div></div>
+<h2>Top findings</h2><div id="findings"></div>
+<h2>Recommendations</h2><div id="recs"></div>
+<h2>What happens if I improve my settings?</h2>
+<div class="card" id="sim">
+<p class="lead">Tick the fixes you would make, then simulate. This is a <strong>framework simulation</strong>, not a guarantee of real-world safety.</p>
+<div class="checks" id="simchecks"></div>
+<div class="row"><button class="btn" id="simrun">Simulate selected</button><button class="btn ghost" id="simall">Simulate all fixes</button></div>
+<div class="sim-result" id="simout"></div>
+</div>
+<h2>Report &amp; data</h2>
+<p class="row noprint"><a class="btn" id="report" target="_blank" rel="noopener">Open printable report</a><a class="btn ghost" href="/checklist.html">Privacy checklist</a><button class="btn ghost" id="delete">Delete my stored result</button></p>
+<p class="lead" id="deleteMsg"></p>
+</div>
+</main>
+<script src="/js/vendor/chart.umd.js"></script><script src="/js/common.js"></script><script src="/js/results.js"></script>
+</body></html>

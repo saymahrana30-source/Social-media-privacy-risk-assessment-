@@ -1,0 +1,16 @@
+body{font:15px/1.5 system-ui,Segoe UI,Arial,sans-serif;color:#111;background:#fff;margin:0}
+.report{max-width:800px;margin:0 auto;padding:30px}
+h1{font-size:1.6rem;border-bottom:3px solid #111;padding-bottom:8px}
+.meta{color:#555}code{background:#eee;padding:1px 5px}
+.summary{display:flex;gap:24px;align-items:center;margin:18px 0}
+.score{font-size:3rem;font-weight:800}.score small{font-size:1rem;color:#555}
+.badge{padding:2px 12px;border-radius:99px;color:#fff;font-size:.9rem}
+.low{background:#1f9d57;color:#fff}.moderate{background:#c99a00;color:#fff}.high{background:#e07020;color:#fff}.critical{background:#d62839;color:#fff}
+.score.low,.score.moderate,.score.high,.score.critical{background:none}
+.score.low{color:#1f9d57}.score.moderate{color:#c99a00}.score.high{color:#e07020}.score.critical{color:#d62839}
+table.bars th{text-align:left;padding-right:14px;font-weight:500}
+svg .bg{fill:#e5e7eb}svg .fg{fill:#111}
+.checklist{padding:0}.checklist li{list-style:none;padding:3px 0}
+footer{margin-top:28px;border-top:1px solid #ccc;font-size:.9rem;color:#444}
+button{padding:8px 16px;font-size:14px;cursor:pointer}
+@media print{.noprint{display:none}}

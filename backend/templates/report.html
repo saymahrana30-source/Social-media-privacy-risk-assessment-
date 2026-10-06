@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Privacy Assessment Report {{ a.assessment_id[:8] }}</title>
+<link rel="stylesheet" href="/css/report.css">
+</head>
+<body>
+<main class="report">
+  <header>
+    <h1>Social Media Privacy Risk Assessment Report</h1>
+    <p class="meta">Assessment ID: <code>{{ a.assessment_id }}</code> &middot; Date: {{ a.created_at }}</p>
+  </header>
+
+  <section class="summary">
+    <div class="score {{ a.risk_level|lower }}">{{ a.overall_score }}<small>/100</small></div>
+    <div><h2>Risk level: <span class="badge {{ a.risk_level|lower }}">{{ a.risk_level }}</span></h2>
+    <p>Higher score = higher assessed exposure.</p></div>
+  </section>
+
+  <h2>Category scores</h2>
+  <table class="bars">
+    {% for key, score in a.category_scores.items() %}
+    <tr><th>{{ labels[key] }}</th>
+      <td><svg viewBox="0 0 200 12" width="200" height="12" role="img" aria-label="{{ score }} out of 100">
+        <rect width="200" height="12" class="bg"/><rect width="{{ score * 2 }}" height="12" class="fg"/></svg></td>
+      <td>{{ score|round(1) }}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h2>Top findings</h2>
+  {% if a.findings %}<ol>{% for f in a.findings[:5] %}<li><strong>{{ f.severity }}</strong> - {{ f.description }}</li>{% endfor %}</ol>
+  {% else %}<p>No findings: all assessed items were reported as low risk.</p>{% endif %}
+
+  <h2>Security recommendations and priority actions</h2>
+  {% for p in ["IMMEDIATE", "IMPORTANT", "GOOD PRACTICE"] %}
+    {% set group = recs|selectattr("priority", "equalto", p)|list %}
+    {% if group %}<h3>{{ p }}</h3><ul>{% for r in group %}<li>{{ r.recommendation }}</li>{% endfor %}</ul>{% endif %}
+  {% endfor %}
+
+  <h2>Privacy checklist</h2>
+  <ul class="checklist">{% for item in checklist %}<li>&#9633; {{ item }}</li>{% endfor %}</ul>
+
+  <footer>
+    <h2>Disclaimer</h2>
+    <p>{{ disclaimer }}</p>
+    <p>This report contains no personal data: it was generated from scores and finding types only.</p>
+    <button class="noprint" id="printBtn">Print / Save as PDF</button>
+  </footer>
+</main>
+<script src="/js/report.js"></script>
+</body>
+</html>
